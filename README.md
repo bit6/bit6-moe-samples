@@ -1,9 +1,11 @@
 # bit6-moe-samples
 
-1. Install [MOE](https://software.intel.com/en-us/multi-os-engine)
-2. Add [Bit6.jar](https://www.dropbox.com/s/m2lriz4eqnxa2gu/Bit6.jar.zip?dl=0) into the lib folder
-3. Import project into Android Studio
+1. Install [MOE](https://software.intel.com/en-us/multi-os-engine) v1.0.598
+2. Import project into Android Studio
+3. Add [Bit6.jar](https://www.dropbox.com/s/m2lriz4eqnxa2gu/Bit6.jar.zip?dl=0) into the lib folder
+4. Add lib/Bit6.jar as a Module Library to the project.
 
+![](img/import1.png)
 
 To Run:
 
