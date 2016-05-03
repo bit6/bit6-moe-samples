@@ -1,0 +1,3 @@
+dependencies {
+compile "com.bit6.moe:bit6-moe-sdk:0.9.7"
+}

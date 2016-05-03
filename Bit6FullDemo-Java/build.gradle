@@ -5,6 +5,9 @@ buildscript {
         maven {
             url uri(System.getenv("INTEL_MULTI_OS_ENGINE_HOME") + "/gradle")
         }
+        maven {
+            url "https://raw.githubusercontent.com/bit6/bit6-moe-sdk/master/releases/"
+        }
     }
     dependencies {
         classpath 'org.intel.gradle:xRTGradlePlugin:1.0'
