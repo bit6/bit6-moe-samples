@@ -1,26 +1,21 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
 
-        maven {
-            url uri(System.getenv("INTEL_MULTI_OS_ENGINE_HOME") + "/gradle")
-        }
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
         maven {
             url "https://raw.githubusercontent.com/bit6/bit6-moe-sdk/master/releases/"
         }
     }
-    dependencies {
-        classpath 'org.intel.gradle:xRTGradlePlugin:1.0'
-    }
-}
-
-apply plugin: 'xrt'
-
-dependencies {
-    compile fileTree(include: '*.jar', dir: 'lib')
-}
-
-xrt {
-    sdkVersion '9.2'
-    signingIdentityName 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
 }

@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        mavenCentral()
+
+        maven {
+            url uri(System.getenv("INTEL_MULTI_OS_ENGINE_HOME") + "/gradle")
+        }
+    }
+    dependencies {
+        classpath 'org.intel.gradle:xRTGradlePlugin:1.0'
+    }
+}
+
+apply plugin: 'xrt'
+
+dependencies {
+    compile "com.bit6.moe:bit6-moe-sdk:0.9.7"
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
+xrt {
+    //consoleLog true
+    //logLevel 'INFO'
+    sdkVersion '9.3'
+    signingIdentityName 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
+}

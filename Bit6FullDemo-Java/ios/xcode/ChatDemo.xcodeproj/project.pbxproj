@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		05B97ABF1BC4F6C300F7713D /* precopy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05B97ABE1BC4F6C300F7713D /* precopy.txt */; };
 		4C83DFEE14ED5EFF58750B72 /* MOE.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7CFE33192479FA25F5CF763 /* MOE.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4CD7C152F9EB6D5815BFB339 /* ../src/main/resources/MainUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5090394A47BB8214023123 /* ../src/main/resources/MainUI.storyboard */; };
+		4CD7C152F9EB6D5815BFB339 /* MainUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5090394A47BB8214023123 /* MainUI.storyboard */; };
 		7DCEAFECFB315FE7D5ADF376 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C97445BE72A3171B9498E7 /* main.m */; };
 		D241468BC37AC21CC30E4617 /* MOE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CFE33192479FA25F5CF763 /* MOE.framework */; };
 		D800EE021C952FAC004B4DD5 /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D800EE011C952FAC004B4DD5 /* ConversationsViewController.m */; };
@@ -46,7 +46,7 @@
 		05B97ABE1BC4F6C300F7713D /* precopy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = precopy.txt; sourceTree = "<group>"; };
 		05D6EF891BE0A845001EC12E /* custom.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = custom.xcconfig; sourceTree = "<group>"; };
 		3EA7675175F5F88D6DAEEFC8 /* preregister.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = preregister.txt; sourceTree = "<group>"; };
-		4B5090394A47BB8214023123 /* ../src/main/resources/MainUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ../src/main/resources/MainUI.storyboard; sourceTree = "<group>"; };
+		4B5090394A47BB8214023123 /* MainUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MainUI.storyboard; path = ../src/main/resources/MainUI.storyboard; sourceTree = "<group>"; };
 		5A88B4FAFCEE1E474D14999D /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C97445BE72A3171B9498E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B7CFE33192479FA25F5CF763 /* MOE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOE.framework; sourceTree = XRT_FRAMEWORK_PATH; };
@@ -120,7 +120,7 @@
 				E65DE1A51BB288C30042C6E1 /* LaunchScreen.xib */,
 				5A88B4FAFCEE1E474D14999D /* ChatDemo.app */,
 				D8F7C2981CD16D8800CB6F5A /* MyCallViewController.xib */,
-				4B5090394A47BB8214023123 /* ../src/main/resources/MainUI.storyboard */,
+				4B5090394A47BB8214023123 /* MainUI.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				D8C4CC441C9F16810026B9C0 /* Localizable.strings in Resources */,
 				D8F7C2A21CD24F1700CB6F5A /* ringtone.caf in Resources */,
 				E1FC3316B6A51DD307A75C6B /* preregister.txt in Resources */,
-				4CD7C152F9EB6D5815BFB339 /* ../src/main/resources/MainUI.storyboard in Resources */,
+				4CD7C152F9EB6D5815BFB339 /* MainUI.storyboard in Resources */,
 				05B97ABF1BC4F6C300F7713D /* precopy.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

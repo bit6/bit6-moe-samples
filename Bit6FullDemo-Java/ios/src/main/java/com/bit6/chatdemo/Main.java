@@ -63,15 +63,17 @@ public class Main extends NSObject implements UIApplicationDelegate {
 
     private UIWindow window;
 
-    @Override
-    public boolean applicationDidFinishLaunchingWithOptions(UIApplication application, NSDictionary launchOptions) {
-
+    static {
         try {
             Class.forName(Bit6CallController.class.getName());
+            Class.forName(Bit6CallViewController.class.getName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    @Override
+    public boolean applicationDidFinishLaunchingWithOptions(UIApplication application, NSDictionary launchOptions) {
         //prepare to receive incoming calls
         NSNotificationCenter.defaultCenter().addObserverSelectorNameObject(this,new SEL("incomingCallNotification:"),Bit6IncomingCallNotification,null);
         NSNotificationCenter.defaultCenter().addObserverSelectorNameObject(this,new SEL("callAddedNotification:"),Bit6CallAddedNotification,null);
