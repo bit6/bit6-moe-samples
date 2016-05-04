@@ -2,12 +2,8 @@
 
 1. Install [Multi-OS Engine](https://software.intel.com/en-us/multi-os-engine) v1.0.598
 2. In Android Studio choose the option "import project (Eclipse ADT, Graddle, etc.) to import the sample project.
-3. Add [Bit6.jar](https://www.dropbox.com/s/m2lriz4eqnxa2gu/Bit6.jar.zip?dl=0) into the lib folder
-4. Add lib/Bit6.jar as a Module Library to the project.
 
-	![](img/import1.png)
-
-5. Select "Edit Configurations" in the Run menu in Android Studio. Add a new "Intel MOE iOS Application" configuration to run on a Device.
+3. Select "Edit Configurations" in the Run menu in Android Studio. Add a new "Intel MOE iOS Application" configuration to run on a Device.
 	
 	![](img/configuration1.png)
 	
@@ -15,13 +11,13 @@
 	
 	![](img/configuration3.png)
 
-6. Get your Bit6 api key in [Bit6 Dashboard](https://dashboard.bit6.com).
+4. Get your Bit6 api key in [Bit6 Dashboard](https://dashboard.bit6.com).
 
-7. Open the file com.bit6.chatdemo.Main.java and set your api key in
+5. Open the file com.bit6.chatdemo.Main.java and set your api key in
 
 	`Bit6.startWithApiKey("");`
 	
-8. Connect your iOS device and Run the project
+6. Connect your iOS device and Run the project
 
 ####Enable the Push Notification
 
