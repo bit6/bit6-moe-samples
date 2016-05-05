@@ -7,21 +7,21 @@ import com.intel.bit6.Bit6CallViewController;
 import com.intel.bit6.Bit6Utils;
 import com.intel.bit6.Bit6VideoFeedView;
 import com.intel.bit6.enums.Bit6CallState;
-import com.intel.inde.moe.natj.general.NatJ;
-import com.intel.inde.moe.natj.general.Pointer;
-import com.intel.inde.moe.natj.general.ann.Generated;
-import com.intel.inde.moe.natj.general.ann.Mapped;
-import com.intel.inde.moe.natj.general.ann.Owned;
-import com.intel.inde.moe.natj.general.ann.RegisterOnStartup;
-import com.intel.inde.moe.natj.general.ann.Runtime;
-import com.intel.inde.moe.natj.objc.ObjCRuntime;
-import com.intel.inde.moe.natj.objc.SEL;
-import com.intel.inde.moe.natj.objc.ann.IBAction;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassBinding;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassName;
-import com.intel.inde.moe.natj.objc.ann.Selector;
-import com.intel.inde.moe.natj.objc.ann.Property;
-import com.intel.inde.moe.natj.objc.map.ObjCObjectMapper;
+import com.intel.moe.natj.general.NatJ;
+import com.intel.moe.natj.general.Pointer;
+import com.intel.moe.natj.general.ann.Generated;
+import com.intel.moe.natj.general.ann.Mapped;
+import com.intel.moe.natj.general.ann.Owned;
+import com.intel.moe.natj.general.ann.RegisterOnStartup;
+import com.intel.moe.natj.general.ann.Runtime;
+import com.intel.moe.natj.objc.ObjCRuntime;
+import com.intel.moe.natj.objc.SEL;
+import com.intel.moe.natj.objc.ann.IBAction;
+import com.intel.moe.natj.objc.ann.ObjCClassBinding;
+import com.intel.moe.natj.objc.ann.ObjCClassName;
+import com.intel.moe.natj.objc.ann.Selector;
+import com.intel.moe.natj.objc.ann.Property;
+import com.intel.moe.natj.objc.map.ObjCObjectMapper;
 import ios.foundation.NSArray;
 import ios.foundation.NSBundle;
 import ios.foundation.NSCoder;
@@ -152,12 +152,12 @@ public class MyCallViewController extends Bit6CallViewController {
 	public void setControlsView(UIView value) {
 		Object __old = controlsView();
 		if (value != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
 					value);
 		}
 		setControlsView_unsafe(value);
 		if (__old != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
 					__old);
 		}
 	}
@@ -174,12 +174,12 @@ public class MyCallViewController extends Bit6CallViewController {
 	public void setOverlayView(UIView value) {
 		Object __old = overlayView();
 		if (value != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
 					value);
 		}
 		setOverlayView_unsafe(value);
 		if (__old != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
 					__old);
 		}
 	}
@@ -196,12 +196,12 @@ public class MyCallViewController extends Bit6CallViewController {
 	public void setTimerLabel(UILabel value) {
 		Object __old = timerLabel();
 		if (value != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
 					value);
 		}
 		setTimerLabel_unsafe(value);
 		if (__old != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
 					__old);
 		}
 	}
@@ -214,12 +214,12 @@ public class MyCallViewController extends Bit6CallViewController {
 	public void setUsernameLabel(UILabel value) {
 		Object __old = usernameLabel();
 		if (value != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
 					value);
 		}
 		setUsernameLabel_unsafe(value);
 		if (__old != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
 					__old);
 		}
 	}

@@ -1,11 +1,11 @@
 package com.bit6.chatdemo.c;
 
 
-import com.intel.inde.moe.natj.c.CRuntime;
-import com.intel.inde.moe.natj.c.ann.CVariable;
-import com.intel.inde.moe.natj.general.NatJ;
-import com.intel.inde.moe.natj.general.ann.Generated;
-import com.intel.inde.moe.natj.general.ann.Runtime;
+import com.intel.moe.natj.c.CRuntime;
+import com.intel.moe.natj.c.ann.CVariable;
+import com.intel.moe.natj.general.NatJ;
+import com.intel.moe.natj.general.ann.Generated;
+import com.intel.moe.natj.general.ann.Runtime;
 
 @Generated
 @Runtime(CRuntime.class)

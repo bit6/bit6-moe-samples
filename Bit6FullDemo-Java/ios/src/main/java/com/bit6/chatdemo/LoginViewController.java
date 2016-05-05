@@ -1,16 +1,16 @@
 package com.bit6.chatdemo;
 
 
-import com.intel.inde.moe.natj.general.NatJ;
-import com.intel.inde.moe.natj.general.Pointer;
-import com.intel.inde.moe.natj.general.ann.Generated;
-import com.intel.inde.moe.natj.general.ann.Owned;
-import com.intel.inde.moe.natj.general.ann.RegisterOnStartup;
-import com.intel.inde.moe.natj.general.ann.Runtime;
-import com.intel.inde.moe.natj.objc.ObjCRuntime;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassBinding;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassName;
-import com.intel.inde.moe.natj.objc.ann.Selector;
+import com.intel.moe.natj.general.NatJ;
+import com.intel.moe.natj.general.Pointer;
+import com.intel.moe.natj.general.ann.Generated;
+import com.intel.moe.natj.general.ann.Owned;
+import com.intel.moe.natj.general.ann.RegisterOnStartup;
+import com.intel.moe.natj.general.ann.Runtime;
+import com.intel.moe.natj.objc.ObjCRuntime;
+import com.intel.moe.natj.objc.ann.ObjCClassBinding;
+import com.intel.moe.natj.objc.ann.ObjCClassName;
+import com.intel.moe.natj.objc.ann.Selector;
 import ios.foundation.NSBundle;
 import ios.foundation.NSCoder;
 import ios.foundation.NSDictionary;
@@ -165,12 +165,12 @@ public class LoginViewController extends UIViewController {
     public void setPasswordTextField(UITextField value) {
         Object __old = passwordTextField();
         if (value != null) {
-            com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+            com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
                     value);
         }
         setPasswordTextField_unsafe(value);
         if (__old != null) {
-            com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+            com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
                     __old);
         }
     }
@@ -183,12 +183,12 @@ public class LoginViewController extends UIViewController {
     public void setUsernameTextField(UITextField value) {
         Object __old = usernameTextField();
         if (value != null) {
-            com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+            com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
                     value);
         }
         setUsernameTextField_unsafe(value);
         if (__old != null) {
-            com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+            com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
                     __old);
         }
     }

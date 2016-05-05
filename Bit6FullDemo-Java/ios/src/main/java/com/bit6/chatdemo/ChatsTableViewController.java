@@ -17,20 +17,20 @@ import com.intel.bit6.enums.Bit6MessageCallStatus;
 import com.intel.bit6.enums.Bit6MessageFileType;
 import com.intel.bit6.enums.Bit6MessageStatus;
 import com.intel.bit6.enums.Bit6MessageType;
-import com.intel.inde.moe.natj.general.NatJ;
-import com.intel.inde.moe.natj.general.Pointer;
-import com.intel.inde.moe.natj.general.ann.Generated;
-import com.intel.inde.moe.natj.general.ann.Mapped;
-import com.intel.inde.moe.natj.general.ann.NInt;
-import com.intel.inde.moe.natj.general.ann.Owned;
-import com.intel.inde.moe.natj.general.ann.RegisterOnStartup;
-import com.intel.inde.moe.natj.general.ann.Runtime;
-import com.intel.inde.moe.natj.objc.ObjCRuntime;
-import com.intel.inde.moe.natj.objc.SEL;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassBinding;
-import com.intel.inde.moe.natj.objc.ann.ObjCClassName;
-import com.intel.inde.moe.natj.objc.ann.Selector;
-import com.intel.inde.moe.natj.objc.map.ObjCObjectMapper;
+import com.intel.moe.natj.general.NatJ;
+import com.intel.moe.natj.general.Pointer;
+import com.intel.moe.natj.general.ann.Generated;
+import com.intel.moe.natj.general.ann.Mapped;
+import com.intel.moe.natj.general.ann.NInt;
+import com.intel.moe.natj.general.ann.Owned;
+import com.intel.moe.natj.general.ann.RegisterOnStartup;
+import com.intel.moe.natj.general.ann.Runtime;
+import com.intel.moe.natj.objc.ObjCRuntime;
+import com.intel.moe.natj.objc.SEL;
+import com.intel.moe.natj.objc.ann.ObjCClassBinding;
+import com.intel.moe.natj.objc.ann.ObjCClassName;
+import com.intel.moe.natj.objc.ann.Selector;
+import com.intel.moe.natj.objc.map.ObjCObjectMapper;
 
 import ios.coregraphics.struct.CGPoint;
 import ios.foundation.NSArray;
@@ -430,12 +430,12 @@ public class ChatsTableViewController extends UITableViewController {
 	public void setTypingBarButtonItem(UIBarButtonItem value) {
 		Object __old = typingBarButtonItem();
 		if (value != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.associateObjCObject(this,
 					value);
 		}
 		setTypingBarButtonItem_unsafe(value);
 		if (__old != null) {
-			com.intel.inde.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
+			com.intel.moe.natj.objc.ObjCRuntime.dissociateObjCObject(this,
 					__old);
 		}
 	}

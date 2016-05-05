@@ -1,9 +1,5 @@
 package com.bit6.chatdemo;
 
-import com.intel.inde.moe.natj.objc.SEL;
-
-import ios.foundation.NSNotificationCenter;
-
 /**
  * Created by carlosthurberb on 03/16/16.
  */

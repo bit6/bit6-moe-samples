@@ -7,20 +7,36 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'org.intel.gradle:xRTGradlePlugin:1.0'
+        classpath 'com.intel.gradle:moeGradlePlugin:1.1.+'
     }
 }
 
-apply plugin: 'xrt'
+apply plugin: 'moe'
 
 dependencies {
     compile "com.bit6.moe:bit6-moe-sdk:0.9.7"
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
-xrt {
-    //consoleLog true
-    //logLevel 'INFO'
-    sdkVersion '9.3'
-    signingIdentityName 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
+//xrt {
+//    //consoleLog true
+//    //logLevel 'INFO'
+//    sdkVersion '9.3'
+//    signingIdentityName 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
+//}
+
+moe {
+    xcode {
+        mainTarget 'ChatDemo'
+        companyIdentifier 'com.bit6'
+        packageName 'com.bit6.chatdemo'
+        launchScreenFilePath 'src/main/resources/LaunchScreen.xib'
+        appIconsSource 'AppIcon'
+        infoPlistPath 'xcode/ChatDemo/Info.plist'
+        applicationExitOnSuspend false
+        bundleShortVersionString '1.0'
+        bundleVersion '1'
+        deploymentTarget '9.0'
+
+    }
 }
