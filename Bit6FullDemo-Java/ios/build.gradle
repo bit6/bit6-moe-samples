@@ -14,29 +14,43 @@ buildscript {
 apply plugin: 'moe'
 
 dependencies {
-    compile "com.bit6.moe:bit6-moe-sdk:0.9.7"
+    compile "com.bit6.moe:bit6-moe-sdk:0.9.8"
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
-//xrt {
-//    //consoleLog true
-//    //logLevel 'INFO'
-//    sdkVersion '9.3'
-//    signingIdentityName 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
-//}
-
+//http://multi-os-engine.github.io/doc/multi-os-engine/1_getting_started/5_project_customization_via_gradle/project_customization_via_gradle.html
 moe {
-    xcode {
-        mainTarget 'ChatDemo'
-        companyIdentifier 'com.bit6'
-        packageName 'com.bit6.chatdemo'
-        launchScreenFilePath 'src/main/resources/LaunchScreen.xib'
-        appIconsSource 'AppIcon'
-        infoPlistPath 'xcode/ChatDemo/Info.plist'
-        applicationExitOnSuspend false
-        bundleShortVersionString '1.0'
-        bundleVersion '1'
-        deploymentTarget '9.0'
+    mainClassName 'Main'
 
+    ipaOptions {
+        //Signing options
+        signingIdentity 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
+    }
+    xcode {
+        //Mandatory options
+        mainTarget 'ChatDemo'
+        packageName 'com.bit6.chatdemo'
+        mainClassName 'Main'
+
+        //Xcode Project Options
+        deploymentTarget '9.0'
+        applicationExitOnSuspend false
+        mainProductName 'Bit6'
+        //xcodeProjectDirPath 'xcode'
+        generateProject true
+        bundleShortVersionString '0.9.8'
+        bundleVersion '1'
+
+        //Signing options
+        bundleID 'com.bit6.ChatDemo'
+
+        //Storyboard
+        mainUIStoryboardPath 'src/main/resources/MainUI.storyboard'
+
+        //App icons
+        appIconsSource = 'AppIcon'
+
+        //Splash screen
+        launchScreenFilePath 'src/main/resources/LaunchScreen.xib'
     }
 }

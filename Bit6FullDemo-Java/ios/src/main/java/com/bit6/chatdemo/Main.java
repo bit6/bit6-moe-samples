@@ -33,14 +33,18 @@ import com.intel.bit6.Bit6GroupMember;
 import com.intel.bit6.Bit6Message;
 import com.intel.bit6.Bit6PushNotificationCenter;
 import com.intel.bit6.enums.Bit6CallStreams;
+import com.intel.moe.natj.c.ann.CFunction;
 import com.intel.moe.natj.general.Pointer;
 import com.intel.moe.natj.general.ann.Generated;
 import com.intel.moe.natj.general.ann.NUInt;
 import com.intel.moe.natj.general.ann.RegisterOnStartup;
-import com.intel.moe.natj.objc.SEL;
+import com.intel.moe.natj.general.ptr.VoidPtr;
+import com.intel.moe.natj.objc.*;
 import com.intel.moe.natj.objc.ann.IsOptional;
 import com.intel.moe.natj.objc.ann.ObjCBlock;
 import com.intel.moe.natj.objc.ann.Selector;
+
+import java.lang.Class;
 
 import static com.bit6.chatdemo.Constants.*;
 import static ios.uikit.enums.UIAlertActionStyle.Cancel;
@@ -74,6 +78,10 @@ public class Main extends NSObject implements UIApplicationDelegate {
 
     @Override
     public boolean applicationDidFinishLaunchingWithOptions(UIApplication application, NSDictionary launchOptions) {
+
+        Class c = MyCallViewController.class;
+        Bit6.setInCallClass(com.intel.moe.natj.objc.Class.fromJavaClass(c));
+
         //prepare to receive incoming calls
         NSNotificationCenter.defaultCenter().addObserverSelectorNameObject(this,new SEL("incomingCallNotification:"),Bit6IncomingCallNotification,null);
         NSNotificationCenter.defaultCenter().addObserverSelectorNameObject(this,new SEL("callAddedNotification:"),Bit6CallAddedNotification,null);

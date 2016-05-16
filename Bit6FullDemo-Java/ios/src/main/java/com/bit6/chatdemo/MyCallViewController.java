@@ -7,10 +7,12 @@ import com.intel.bit6.Bit6CallViewController;
 import com.intel.bit6.Bit6Utils;
 import com.intel.bit6.Bit6VideoFeedView;
 import com.intel.bit6.enums.Bit6CallState;
+import com.intel.bit6.enums.Bit6VideoSource;
 import com.intel.moe.natj.general.NatJ;
 import com.intel.moe.natj.general.Pointer;
 import com.intel.moe.natj.general.ann.Generated;
 import com.intel.moe.natj.general.ann.Mapped;
+import com.intel.moe.natj.general.ann.NInt;
 import com.intel.moe.natj.general.ann.Owned;
 import com.intel.moe.natj.general.ann.RegisterOnStartup;
 import com.intel.moe.natj.general.ann.Runtime;
@@ -277,40 +279,45 @@ public class MyCallViewController extends Bit6CallViewController {
 
     /**************** Bit6CallViewController methods ****************/
 
-    @Selector("callStateChangedNotificationForCall:")
-    public void callStateChangedNotificationForCall(Bit6CallController callController)
+    @Selector("callController:callDidChangeToState:")
+    public void callControllerCallDidChangeToState(Bit6CallController callController, @NInt long state)
     {
+        super.callControllerCallDidChangeToState(callController,state);
+
         if (callController.state() == Bit6CallState.ERROR) {
             UIAlertController errorAlert = UIAlertController.alertControllerWithTitleMessagePreferredStyle("An Error Occurred", callController.error().localizedDescription(), UIAlertControllerStyle.Alert);
             errorAlert.addAction(UIAlertAction.actionWithTitleStyleHandler("OK", UIAlertActionStyle.Cancel, null));
             presentViewControllerAnimatedCompletion(errorAlert, true, null);
         }
 
-        refreshState();
-
-        secondsChangedNotificationForCall(callController);
-    }
-
-    @Selector("secondsChangedNotificationForCall:")
-    public void secondsChangedNotificationForCall(Bit6CallController callController)
-    {
-        long longerCall = 0;
-        NSArray<Bit6CallController> callControllers = (NSArray<Bit6CallController>)Bit6.callControllers().copy();
-        for (Bit6CallController call : callControllers) {
-            if (call.seconds() > longerCall) {
-                longerCall = call.seconds();
-            }
+        if (isViewLoaded()) {
+            refreshState();
         }
 
-        if (callController.state() == Bit6CallState.CONNECTED) {
-            timerLabel().setText( Bit6Utils.clockFormatForSeconds(longerCall) );
+        secondsDidChangeForCallController(callController);
+    }
+
+    @Selector("secondsDidChangeForCallController:")
+    public void secondsDidChangeForCallController(Bit6CallController callController)
+    {
+        if (isViewLoaded()) {
+            long longerCall = 0;
+            NSArray<Bit6CallController> callControllers = (NSArray<Bit6CallController>)Bit6.callControllers().copy();
+            for (Bit6CallController call : callControllers) {
+                if (call.seconds() > longerCall) {
+                    longerCall = call.seconds();
+                }
+            }
+
+            if (callController.state() == Bit6CallState.CONNECTED) {
+                timerLabel().setText( Bit6Utils.clockFormatForSeconds(longerCall) );
+            }
         }
     }
 
     @Selector("refreshState")
     public void refreshState()
     {
-        boolean atLeastOneCallConnected = false;
         Bit6CallController smallerCall = null;
         int smallerState = (int)Bit6CallState.MISSED;
 
@@ -320,12 +327,10 @@ public class MyCallViewController extends Bit6CallViewController {
                 smallerState = (int)call.state();
                 smallerCall = call;
             }
-            if (call.state() >= Bit6CallState.CONNECTED) {
-                atLeastOneCallConnected = true;
+            if (call.state() == Bit6CallState.CONNECTED) {
+                controlsView().setHidden(false);
             }
         }
-
-        controlsView().setHidden(!atLeastOneCallConnected);
 
         if (smallerCall != null) {
             if (smallerCall.incoming()) {
@@ -408,13 +413,13 @@ public class MyCallViewController extends Bit6CallViewController {
         }
 
         if (muteAudioButton().isEnabled()) {
-            muteAudioButton().setOn(Bit6CallController.audioMuted());
+            muteAudioButton().setOn(!Bit6CallController.isLocalAudioEnabled());
         }
         if (bluetoothButton().isEnabled()) {
-            bluetoothButton().setOn(Bit6CallController.bluetoothEnabled());
+            bluetoothButton().setOn(Bit6CallController.isBluetoothEnabled());
         }
         if (speakerButton().isEnabled()) {
-            speakerButton().setOn(Bit6CallController.speakerEnabled());
+            speakerButton().setOn(Bit6CallController.isSpeakerEnabled());
         }
     }
 
@@ -431,31 +436,31 @@ public class MyCallViewController extends Bit6CallViewController {
     @Selector("muteAudioCall:")
     public void muteAudioCall(@Mapped(ObjCObjectMapper.class) Object sender)
     {
-        Bit6CallController.switchMuteAudio();
+        Bit6CallController.setLocalAudioEnabled( !Bit6CallController.isLocalAudioEnabled() );
     }
 
     @Selector("bluetooth:")
     public void bluetooth(@Mapped(ObjCObjectMapper.class) Object sender)
     {
-        Bit6CallController.switchBluetooth();
+        Bit6CallController.setBluetoothEnabled(!Bit6CallController.isBluetoothEnabled());
     }
 
     @Selector("speaker:")
     public void speaker(@Mapped(ObjCObjectMapper.class) Object sender)
     {
-        Bit6CallController.switchSpeaker();
+        Bit6CallController.setSpeakerEnabled(!Bit6CallController.isSpeakerEnabled());
     }
 
     @Selector("muteVideoCall:")
     public void muteVideoCall(@Mapped(ObjCObjectMapper.class) Object sender)
     {
-        Bit6CallController.switchMuteVideo();
+        Bit6CallController.setLocalVideoEnabled( !Bit6CallController.isLocalVideoEnabled() );
     }
 
     @Selector("switchCamera:")
     public void switchCamera(@Mapped(ObjCObjectMapper.class) Object sender)
     {
-        Bit6CallController.switchCamera();
+        Bit6CallController.setLocalVideoSource(Bit6CallController.localVideoSource() == Bit6VideoSource.CameraBack ? Bit6VideoSource.CameraFront : Bit6VideoSource.CameraBack);
     }
 
     @Selector("hangup:")

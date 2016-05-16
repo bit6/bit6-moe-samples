@@ -22,6 +22,7 @@ import com.intel.moe.natj.general.ann.Runtime;
 import com.intel.moe.natj.objc.ObjCRuntime;
 import com.intel.moe.natj.objc.ann.ObjCClassBinding;
 import com.intel.moe.natj.objc.ann.ObjCClassName;
+import com.intel.moe.natj.objc.ann.Property;
 import com.intel.moe.natj.objc.ann.Selector;
 
 import ios.NSObject;
@@ -495,6 +496,7 @@ public class ConversationsViewController extends UIViewController implements UIT
 
 	@Generated
 	@Selector("tableView")
+    @Property
 	public native UITableView tableView();
 
 }

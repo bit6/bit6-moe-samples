@@ -1,1 +1,0 @@
-XRT_CUSTOM_OTHER_LDFLAGS = -ObjC -L ${SRCROOT}/../build/xcode/libs/static -F ${SRCROOT}/../build/xcode/libs/static -licucore -framework Bit6 -lstdc++ -L ${SRCROOT}/../build/xcode/libs/dynamic -framework GLKit -F ${SRCROOT}/../build/xcode/libs/dynamic -framework VideoToolbox

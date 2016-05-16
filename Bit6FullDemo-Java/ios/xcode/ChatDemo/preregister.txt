@@ -1,7 +1,0 @@
-com/bit6/chatdemo/ChatsTableViewController
-com/bit6/chatdemo/CircleButton
-com/bit6/chatdemo/ConversationsViewController
-com/bit6/chatdemo/LoginViewController
-com/bit6/chatdemo/Main
-com/bit6/chatdemo/MyCallViewController
-com/bit6/chatdemo/RoundedButton

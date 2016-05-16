@@ -29,6 +29,7 @@ import com.intel.moe.natj.objc.ObjCRuntime;
 import com.intel.moe.natj.objc.SEL;
 import com.intel.moe.natj.objc.ann.ObjCClassBinding;
 import com.intel.moe.natj.objc.ann.ObjCClassName;
+import com.intel.moe.natj.objc.ann.Property;
 import com.intel.moe.natj.objc.ann.Selector;
 import com.intel.moe.natj.objc.map.ObjCObjectMapper;
 
@@ -442,6 +443,7 @@ public class ChatsTableViewController extends UITableViewController {
 
 	@Generated
 	@Selector("typingBarButtonItem")
+    @Property
 	public native UIBarButtonItem typingBarButtonItem();
 
 }
