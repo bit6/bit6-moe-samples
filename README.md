@@ -1,9 +1,9 @@
 # bit6-moe-samples
 
-1. Install [Multi-OS Engine](https://software.intel.com/en-us/multi-os-engine) v1.0.598
+1. Install [Multi-OS Engine](https://software.intel.com/en-us/multi-os-engine) v1.0.648
 2. In Android Studio choose the option "import project (Eclipse ADT, Graddle, etc.) to import the sample project.
 
-3. Select "Edit Configurations" in the Run menu in Android Studio. Add a new "Intel MOE iOS Application" configuration to run on a Device.
+3. Select "Edit Configurations" in the Run menu in Android Studio. Add a new "Multi-OS Engine iOS Application" configuration to run on a Device.
 	
 	![](img/configuration1.png)
 	
@@ -17,17 +17,23 @@
 
 	`Bit6.startWithApiKey("");`
 	
-6. Connect your iOS device and Run the project
+6. Open the file /ios/build.gradle and set `signingIdentity`, `provisioningProfile` and `bundleID` (bundle identifier) to match your Apple account.
+	
+7. Run the project
+
+8. Open the Xcode project in /ios/build/xcode/ChatDemo.xcodeproj 
+
+9. Check the background modes in your target.
+
+![](img/background_modes.png)
+
+10. Connect your iOS device and run it using Xcode.
 
 ####Enable the Push Notification
 
-1. In Android Studio, do right clic on the Android side panel, select MOE Actions -> Open project in Xcode.
+1. Generate the APNS Certificates for the bundle identifier you set in step8. https://developer.apple.com/account/. Install these certificates in your Mac.
 
-2. In Xcode change the bundle identifier of the application to match your apple account.
-
-3. Generate the APNS Certificates for the bundle identifier you set in step8. https://developer.apple.com/account/. Install these certificates in your Mac.
-
-4. Open the Keychain app in Mac and export the APNS Certificates as .p12 files. Upload these two .p12 files to [Bit6 Dashboard](https://dashboard.bit6.com).
+2. Open the Keychain app in Mac and export the APNS Certificates as .p12 files. Upload these two .p12 files to [Bit6 Dashboard](https://dashboard.bit6.com).
 
 ####Try the Sample Project
 

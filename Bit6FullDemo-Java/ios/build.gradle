@@ -22,9 +22,10 @@ dependencies {
 moe {
     mainClassName 'Main'
 
+    //Signing options
     ipaOptions {
-        //Signing options
-        signingIdentity 'iPhone Developer: Carlos Thurber (S6N6X8TA9Q)'
+        //signingIdentity 'iPhone Developer: Developer Name'
+        //provisioningProfile '/Users/<userName>/Library/MobileDevice/Provisioning Profiles/<ID>.mobileprovision'
     }
     xcode {
         //Mandatory options
