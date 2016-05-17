@@ -46,20 +46,7 @@ import ios.foundation.NSNotification;
 import ios.foundation.NSNotificationCenter;
 import ios.foundation.NSString;
 import ios.foundation.enums.NSComparisonResult;
-import ios.uikit.UIAlertAction;
-import ios.uikit.UIAlertController;
-import ios.uikit.UIBarButtonItem;
-import ios.uikit.UIButton;
-import ios.uikit.UIColor;
-import ios.uikit.UIImage;
-import ios.uikit.UIImageView;
-import ios.uikit.UILabel;
-import ios.uikit.UIStoryboardSegue;
-import ios.uikit.UITableView;
-import ios.uikit.UITableViewCell;
-import ios.uikit.UITableViewController;
-import ios.uikit.UITapGestureRecognizer;
-import ios.uikit.UITextField;
+import ios.uikit.*;
 import ios.uikit.enums.UIAlertActionStyle;
 import ios.uikit.enums.UIAlertControllerStyle;
 import ios.uikit.enums.UIBarButtonItemStyle;
@@ -113,12 +100,14 @@ public class ChatsTableViewController extends UITableViewController {
 	@Selector("initWithStyle:")
 	public native ChatsTableViewController initWithStyle(@NInt long style);
 
+    UIBarButtonItem callItem = null;
+
     @Selector("viewDidLoad")
     public void viewDidLoad() {
 
         navigationItem().setPrompt("Logged as " + Bit6.session().activeIdentity().uri());
 
-        UIBarButtonItem callItem = UIBarButtonItem.alloc().initWithImageStyleTargetAction(UIImage.imageNamed("bit6ui_phone"), UIBarButtonItemStyle.Plain, this, new SEL("call"));
+        callItem = UIBarButtonItem.alloc().initWithImageStyleTargetAction(UIImage.imageNamed("bit6ui_phone"), UIBarButtonItemStyle.Plain, this, new SEL("call"));
         navigationItem().setRightBarButtonItem(callItem);
 
         if (_conversation.typingAddress() != null) {
@@ -208,6 +197,12 @@ public class ChatsTableViewController extends UITableViewController {
                     }})
         );
         alert.addAction(UIAlertAction.actionWithTitleStyleHandler("Cancel", Cancel, null));
+
+        UIPopoverPresentationController popover = alert.popoverPresentationController();
+        if (popover != null) {
+            popover.setBarButtonItem(callItem);
+        }
+
         navigationController().presentViewControllerAnimatedCompletion(alert, true, null);
     }
 
