@@ -43,6 +43,5 @@ moe {
 
         //Splash screen
         launchImagesSource 'LaunchImage'
-        launchScreenFilePath 'LaunchScreen'
     }
 }
