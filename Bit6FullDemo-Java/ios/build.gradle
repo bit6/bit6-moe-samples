@@ -36,18 +36,13 @@ moe {
         deploymentTarget '9.0'
         applicationExitOnSuspend false
 
-        //xcodeProjectDirPath 'xcode'
         generateProject true
-        bundleShortVersionString '0.9.8'
-        bundleVersion '1'
-
-        //Signing options
-        bundleID 'com.bit6.ChatDemo'
 
         //App icons
         appIconsSource = 'AppIcon'
 
         //Splash screen
         launchImagesSource 'LaunchImage'
+        launchScreenFilePath 'LaunchScreen'
     }
 }
