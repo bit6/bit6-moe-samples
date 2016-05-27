@@ -1,30 +1,55 @@
-# bit6-moe-samples
+# Bit6 with Multi-OS Engine
 
-1. Install [Multi-OS Engine](https://software.intel.com/en-us/multi-os-engine) v1.0.648
+## Prerequisites
 
-2. Clone the sample app `git clone https://github.com/bit6/bit6-moe-samples`.
+* Get Bit6 API Key for your app from [Bit6 Dashboard](https://dashboard.bit6.com)
 
-3. In Android Studio choose the option "import project (Eclipse ADT, Graddle, etc.) to import the `Bit6FullDemo-Java` sample project.
+* Configure Push Notifications support for [iOS APNS](../guides/push-apns.md)
 
-4. Select "Edit Configurations" in the Run menu in Android Studio. Add a new "Multi-OS Engine iOS Application" configuration to run on a Device.
-	
-	![](img/configuration1.png)
-	
-	![](img/configuration2.png)
-	
-	![](img/configuration3.png)
+* Install [Multi-OS Engine](https://software.intel.com/en-us/multi-os-engine) v1.0.702
 
-5. Get your Bit6 api key in [Bit6 Dashboard](https://dashboard.bit6.com).
 
-6. Open the file com.bit6.chatdemo.Main.java and set your api key in
+## Sample App
+The easiest way to get started is using our [sample applications](https://github.com/bit6/bit6-moe-samples). Download or clone the repository to a local directory:
 
-	`Bit6.startWithApiKey("");`
-	
-7. Open /ios/src/main/Info.plist and set your bundle identifier to match your Apple account.	
-	
-8. Open /ios/build.gradle and set `signingIdentity` and `provisioningProfile` to match your bundle identifier. In some cases this is not necessary because Xcode does it automatically.
+```sh
+git clone https://github.com/bit6/bit6-moe-samples
+```
 
-9. Connect your iOS device and run the module.
+# Development
+
+* Launch Android Studio
+
+* Select `Import Project (Eclipse ADT, Gradle, etc.)` to import the `Bit6FullDemo-Java` sample project.
+
+
+## Project Configuration
+
+1. Open `ios/src/main/Info.plist` and set the bundle identifier for your app. Make sure it matches the one used when configuring APNS push notifications.
+
+2. Open `ios/build.gradle` and set `signingIdentity` and `provisioningProfile` to match your bundle identifier. In some cases this is not necessary because Xcode does it automatically.
+
+
+## Set API Key
+
+Edit `Main.java` and set your Bit6 API key in
+
+```java
+Bit6.startWithApiKey("myApiKey");
+```
+
+
+# Build and Run
+
+## Run Configuration
+
+Select `Edit Configurations` in the Run menu in Android Studio. Add a new "Multi-OS Engine iOS Application" configuration to run on a Device.
+
+![](img/configuration1.png)
+
+![](img/configuration2.png)
+
+![](img/configuration3.png)
 
 ####Enable the Push Notification
 
@@ -32,22 +57,30 @@
 
 2. Open the Keychain app in Mac and export the APNS Certificates as .p12 files. Upload these two .p12 files to [Bit6 Dashboard](https://dashboard.bit6.com).
 
-####Try the Sample Project
+## Launch
 
-1. Install the sample project in one device
+Connect your iOS device and run the module.
 
-2. Enter an username and a password. 
+# Using Sample App
 
-3. Tap "Sign Up" to create the account, or "Login" if the account already existed.
+The sample application allows you to create users and let them send text messages to each other as well as make voice and video calls.
 
-4. Repeat steps 1-3 in another device, using a different account.
+Create a new user, or use an existing one.
 
-#####To start a conversation
+<img src="img/moe_login.png" class="screen-ios">
 
-1. Tap the + sign in the demo running in device1
+## IP Messaging
 
-2. Enter the username of the account you are using in device2
+Create a new chat 'Direct' or 'Group'
 
-3. Once you are inside the conversation you can:
-	* use the "Call" button to start an audio or an audio+video call to deviceB
-	* use the "compose" button to send a text message
+<img src="img/moe_create_conversation.png" class="screen-ios">
+
+In the chat screen you can make video/voice calls, send/receive text messages, see typing notifications.
+
+<img src="img/moe_conversation.png" class="screen-ios">
+
+## Video/Voice Calling
+
+Use button at the top of chat screen to make voice/video calls
+
+<img src="img/ios_call.png" class="screen-ios">
