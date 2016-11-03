@@ -276,27 +276,39 @@ public class MyCallViewController extends Bit6CallViewController {
         controlsView().setHidden(!atLeastOneCallConnected);
     }
 
-
-    /**************** Bit6CallViewController methods ****************/
-
+    /**************** Bit6CallControllerDelegate ****************/
+    
+    boolean _previousLocalFeedStatus;
+    boolean _localFeedInterrupted;
+    
+    - (void)callController:(nonnull Bit6CallController*)callController localVideoFeedInterruptedBecause:(AVCaptureSessionInterruptionReason)reason
+    {
+        
+    }
+    
+    - (void)localVideoFeedInterruptionEndedForCallController:(nonnull Bit6CallController*)callController
+    {
+        
+    }
+    
     @Selector("callController:callDidChangeToState:")
     public void callControllerCallDidChangeToState(Bit6CallController callController, @NInt long state)
     {
         super.callControllerCallDidChangeToState(callController,state);
-
+        
         if (callController.state() == Bit6CallState.ERROR) {
             UIAlertController errorAlert = UIAlertController.alertControllerWithTitleMessagePreferredStyle("An Error Occurred", callController.error().localizedDescription(), UIAlertControllerStyle.Alert);
             errorAlert.addAction(UIAlertAction.actionWithTitleStyleHandler("OK", UIAlertActionStyle.Cancel, null));
             presentViewControllerAnimatedCompletion(errorAlert, true, null);
         }
-
+        
         if (isViewLoaded()) {
             refreshState();
         }
-
+        
         secondsDidChangeForCallController(callController);
     }
-
+    
     @Selector("secondsDidChangeForCallController:")
     public void secondsDidChangeForCallController(Bit6CallController callController)
     {
@@ -308,12 +320,14 @@ public class MyCallViewController extends Bit6CallViewController {
                     longerCall = call.seconds();
                 }
             }
-
+            
             if (callController.state() == Bit6CallState.CONNECTED) {
                 timerLabel().setText( Bit6Utils.clockFormatForSeconds(longerCall) );
             }
         }
     }
+    
+    /**************** Bit6CallViewController methods ****************/
 
     @Selector("refreshState")
     public void refreshState()

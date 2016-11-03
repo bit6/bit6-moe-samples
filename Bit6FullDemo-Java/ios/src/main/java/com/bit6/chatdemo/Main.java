@@ -228,7 +228,8 @@ public class Main extends NSObject implements UIApplicationDelegate {
     //there's restricted access to microphone or camera
     @Selector("callPermissionsMissingNotification:")
     private void callPermissionsMissingNotification(NSNotification notification) {
-        NSError error = (NSError)notification.userInfo().get(Bit6ErrorKey);
+        Bit6CallController callController = (Bit6CallController)notification.object();
+        NSError error = callController.error;
         UIAlertController errorAlert = UIAlertController.alertControllerWithTitleMessagePreferredStyle(error.localizedDescription(), null, UIAlertControllerStyle.Alert);
         errorAlert.addAction(UIAlertAction.actionWithTitleStyleHandler("OK", UIAlertActionStyle.Cancel, null));
         window().rootViewController().presentViewControllerAnimatedCompletion(errorAlert, true, null);
@@ -237,6 +238,11 @@ public class Main extends NSObject implements UIApplicationDelegate {
     //missed call
     @Selector("callMissedNotification:")
     private void callMissedNotification(NSNotification notification) {
+        
+        UIApplicationState appState = [UIApplication sharedApplication].applicationState;
+        if (appState == UIApplicationStateActive) {
+        }
+        
         Bit6CallController callController = (Bit6CallController)notification.object();
         if (this.callController == callController) {
             this.callController = null;

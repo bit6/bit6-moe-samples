@@ -74,14 +74,14 @@ public class CircleButton extends UIButton {
     }
 
     public void refreshColor() {
-        if (on()) {
-            setBackgroundColor( UIColor.colorWithRedGreenBlueAlpha(216/255.0,236/255.0,255/255.0,1.0) );
+        if (! isEnabled()) {
+            setBackgroundColor(UIColor.grayColor());
         }
         else if (isHighlighted()) {
             setBackgroundColor( UIColor.colorWithRedGreenBlueAlpha(216/255.0,236/255.0,255/255.0,1.0) );
         }
-        else if (! isEnabled()) {
-            setBackgroundColor(UIColor.grayColor());
+        else if (on()) {
+            setBackgroundColor( UIColor.colorWithRedGreenBlueAlpha(216/255.0,236/255.0,255/255.0,1.0) );
         }
         else {
             setBackgroundColor( UIColor.whiteColor() );
